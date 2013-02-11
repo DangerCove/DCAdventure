@@ -3,10 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>DCAdventureNumber</key>
-	<integer>0</integer>
+	<integer></integer>
 	<key>DCAdventureURL</key>
-	<string>http://dangercove.com/adventures/adventure</string>
+	<string>about:blank</string>
 	<key>DCAdventureName</key>
-	<string>name</string>
+	<string></string>
+	<key>DCAdventureDismiss</key>
+	<string>Dismiss</string>
+	<key>DCAdventureAgreement</key>
+	<string>Notice: you need to accept this agreement.</string>
+	<key>DCAdventureIAgree</key>
+	<string>I agree!</string>
 </dict>
 </plist>

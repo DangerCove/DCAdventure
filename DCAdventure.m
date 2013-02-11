@@ -19,8 +19,10 @@
     return sharedAdventure;
 }
 
-- (id)init {
-    if (self = [super init]) {
+- (id)initWithRequest:(NSURLRequest *)request {
+    if(self = [super init]) {
+        _urlRequest = request;
+        
         _windowController = [[DCAdventureWindowController alloc] initWithDelegate:self];
         
         _windowClosedCallbacksArray = [[NSMutableArray alloc] init];
@@ -32,20 +34,33 @@
     }
     return self;
 }
+- (id)init {
+    NSURLRequest *adventureRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[_properties objectForKey:@"AdventureURL"]]];
+    if (self = [self initWithRequest:adventureRequest]) {
+    }
+    return self;
+}
+
 
 - (void)buildInterface {
     // Title
-    _windowController.titleLabel.stringValue = [NSString stringWithFormat:_windowController.titleLabel.stringValue, [[_properties objectForKey:@"DCAdventureNumber"] intValue], [_properties objectForKey:@"DCAdventureName"]];
+    _windowController.window.title = [_properties objectForKey:@"DCAdventureName"];
+    
+    // Agreement
+    [_windowController.lblAgreement setStringValue:[_properties objectForKey:@"DCAdventureAgreement"]];
+    [_windowController.btnAgreement setTitle:[_properties objectForKey:@"DCAdventureIAgree"]];
+
+    // Dismiss
+    [_windowController.btnDismiss setTitle:[_properties objectForKey:@"DCAdventureDismiss"]];
     
     // Web View
-    NSURLRequest *adventureRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[_properties objectForKey:@"AdventureURL"]]];
-    [[_windowController.webView mainFrame] loadRequest:adventureRequest];
+    [[_windowController.webView mainFrame] loadRequest:_urlRequest];
 }
 
 - (void)show:(WindowClosedBlock)windowClosedBlock {
     [_windowController showWindow:nil];
     [_windowController.window makeKeyAndOrderFront:self];
-    
+
     if(windowClosedBlock) {
         [_windowClosedCallbacksArray addObject:windowClosedBlock];
     }

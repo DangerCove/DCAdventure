@@ -12,15 +12,18 @@
 typedef void (^WindowClosedBlock)();
 
 @interface DCAdventure : NSObject <NSWindowDelegate> {
-    DCAdventureWindowController *_windowController;
-    
     NSMutableArray *_windowClosedCallbacksArray;
     
     NSDictionary *_properties;
+
+    NSURLRequest *_urlRequest;
 }
 
 + (id)sharedAdventure;
 
+@property DCAdventureWindowController *windowController;
+
+- (id)initWithRequest:(NSURLRequest *)request;
 - (void)show:(WindowClosedBlock)showBlock;
 
 @end

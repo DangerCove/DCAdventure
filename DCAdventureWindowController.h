@@ -10,11 +10,16 @@
 
 #import <WebKit/WebKit.h>
 
-@interface DCAdventureWindowController : NSWindowController
+@interface DCAdventureWindowController : NSWindowController {
+    NSAlert *_needToAccept;
+}
 
-@property (strong, nonatomic) IBOutlet NSTextField *titleLabel;
+@property (strong, nonatomic) IBOutlet NSTextField *lblAgreement;
+@property (strong, nonatomic) IBOutlet NSButton *btnAgreement;
+@property (strong, nonatomic) IBOutlet NSButton *btnDismiss;
 @property (strong, nonatomic) IBOutlet WebView *webView;
 
 - (id)initWithDelegate:(id)delegate;
+- (IBAction)showNeedToAccept:(id)sender;
 
 @end

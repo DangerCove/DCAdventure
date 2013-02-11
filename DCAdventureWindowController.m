@@ -21,11 +21,27 @@
     return self;
 }
 
+- (void)awakeFromNib {
+    [_webView setDrawsBackground:NO];
+}
+
 #pragma mark -
 #pragma mark Interface Methods
 
 - (IBAction)dismiss:(id)sender {
     [self close];
+}
+
+- (IBAction)showNeedToAccept:(id)sender {
+    if(!_needToAccept) {
+        _needToAccept = [[NSAlert alloc] init];
+        
+        [_needToAccept setAlertStyle:NSWarningAlertStyle];
+        [_needToAccept setMessageText:NSLocalizedString(@"Agreement", nil)];
+        [_needToAccept setInformativeText:NSLocalizedString(@"Read the agreement below and check the box to get started with our app. Thanks!", nil)];
+        [_needToAccept addButtonWithTitle:NSLocalizedString(@"OK", nil)];
+    }
+    [_needToAccept beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:nil contextInfo:nil];
 }
 
 @end
