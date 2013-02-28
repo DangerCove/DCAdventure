@@ -24,6 +24,7 @@ typedef void (^WindowClosedBlock)();
 @property DCAdventureWindowController *windowController;
 
 - (id)initWithRequest:(NSURLRequest *)request;
+- (void)show;
 - (void)show:(WindowClosedBlock)showBlock;
 
 @end

@@ -57,10 +57,12 @@
     [[_windowController.webView mainFrame] loadRequest:_urlRequest];
 }
 
-- (void)show:(WindowClosedBlock)windowClosedBlock {
+- (void)show {
     [_windowController showWindow:nil];
     [_windowController.window makeKeyAndOrderFront:self];
-
+}
+- (void)show:(WindowClosedBlock)windowClosedBlock {
+    [self show];
     if(windowClosedBlock) {
         [_windowClosedCallbacksArray addObject:windowClosedBlock];
     }
