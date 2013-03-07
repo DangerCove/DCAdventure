@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>DCAdventureNumber</key>
-	<integer></integer>
+	<integer>1</integer>
 	<key>DCAdventureURL</key>
 	<string>about:blank</string>
 	<key>DCAdventureName</key>
-	<string></string>
+	<string>Adventure</string>
 	<key>DCAdventureDismiss</key>
 	<string>Dismiss</string>
 	<key>DCAdventureAgreement</key>
-	<string>Notice: you need to accept this agreement.</string>
+	<string>Notice: you need to accept this agreement here.</string>
 	<key>DCAdventureIAgree</key>
-	<string>I agree!</string>
+	<string>I understand, let&apos;s go!</string>
 </dict>
 </plist>
