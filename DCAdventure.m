@@ -20,7 +20,8 @@
 }
 
 - (id)initWithRequest:(NSURLRequest *)request {
-    if(self = [super init]) {
+    self = [super init];
+    if(self) {
         _urlRequest = request;
         
         _windowController = [[DCAdventureWindowController alloc] initWithDelegate:self];

@@ -15,7 +15,8 @@
 @implementation DCAdventureWindowController
 
 - (id)initWithDelegate:(id)delegate {
-    if(self = [super initWithWindowNibName:@"DCAdventureWindow"]) {
+    self = [super initWithWindowNibName:@"DCAdventureWindow"];
+    if(self) {
         self.window.delegate = delegate;
     }
     return self;
